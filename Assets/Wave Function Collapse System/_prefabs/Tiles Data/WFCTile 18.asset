@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832bafb31b2787c47a691e58d65f8779, type: 3}
+  m_Name: WFCTile 18
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6926842660040691044, guid: 2648dd53c7fae4746b8f40a78ffbba0a, type: 3}
+  top: r
+  right: r
+  bottom: r
+  left: r
+  weight: 0.8
