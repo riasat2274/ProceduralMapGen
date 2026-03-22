@@ -61,6 +61,22 @@ public class WFCBuilder : MonoBehaviour
 
     void RunWFC()
     {
+        //while (true)
+        //{
+        //    WFCCell cell = GetLowestEntropyCell();
+
+        //    if (cell == null)
+        //        break;
+
+        //    CollapseCell(cell);
+        //    Propagate(cell);
+        //}
+
+        //SpawnTiles();
+        StartCoroutine(RunWFCRoutirn());
+    }
+    IEnumerator RunWFCRoutirn()
+    {
         while (true)
         {
             WFCCell cell = GetLowestEntropyCell();
@@ -70,10 +86,10 @@ public class WFCBuilder : MonoBehaviour
 
             CollapseCell(cell);
             Propagate(cell);
+            yield return new WaitForSeconds(0.05f);
         }
-
-        //SpawnTiles();
-        StartCoroutine(SpawnTilesRoutine());
+            yield return new WaitForSeconds(0.5f);
+        onGenerationComplete?.Invoke();
     }
     
 
@@ -113,6 +129,16 @@ public class WFCBuilder : MonoBehaviour
         cell.possibleTiles.Clear();
         cell.possibleTiles.Add(tileIndex);
         cell.collapsed = true;
+
+        int xx = cell.x;
+        int yy = cell.y;
+        Vector3 pos = new Vector3(xx * spacing, 0, yy * spacing);
+
+        spawnedTiles.Add(Instantiate(
+            tiles[tileIndex].prefab,
+            pos,
+            tiles[tileIndex].prefab.transform.rotation
+        ));
     }
 
     void Propagate(WFCCell startCell)
